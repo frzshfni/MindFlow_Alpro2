@@ -10,6 +10,7 @@ import (
 	"strings"
 )
 
+//fungsi clear terminal
 func cls() {
 	var cmd *exec.Cmd
 	if runtime.GOOS == "windows" {
@@ -21,8 +22,9 @@ func cls() {
 	_ = cmd.Run()
 }
 
+//prosedur untuk menampilkan template header
 func showHeader() {
-	pad := ""
+	var pad string = ""
 	fmt.Printf("%-45s╔═══════════════════════════════════════════════════════════════════════════════════╗\n", pad)
 	fmt.Printf("%-45s║                                                                                   ║\n", pad)
 	fmt.Printf("%-45s║                                                                                   ║\n", pad)
@@ -33,6 +35,7 @@ func showHeader() {
 	fmt.Printf("%-45s╚═══════════════════════════════════════════════════════════════════════════════════╝\n", pad)
 }
 
+//prosedur untuk menampilkan template tabel data
 func showTables(T Pengguna) {
 	var gap string = "   " 
 
@@ -49,6 +52,8 @@ func showTables(T Pengguna) {
 	
 	fmt.Printf("╚════╧═════════╧═══════════════════════════════════════════════════════╧═════════════════╝%s╚════╧═════════╧════════════════════════════════╧═══════════════════╧═══════════╧════════╝\n", gap)
 }
+
+//prosedur untuk menampilkan isi tabel data
 func PrintTabel(data Pengguna){
 	var maxRows int
 	maxRows = data.T_suasana
@@ -63,7 +68,7 @@ func PrintTabel(data Pengguna){
 
 	// 3. Looping data
 	for i := 0; i < maxRows; i++ {
-		// DATA SUASANA (KIRI) ---
+		// DATA SUASANA (KIRI)
 		tglS, deskripsi, skor, sNo := "", "", "", ""
 		if i < data.T_suasana {
 			s := data.daftar_suasana[i]
@@ -74,7 +79,7 @@ func PrintTabel(data Pengguna){
 			skor = fmt.Sprintf("%d", s.skor_emosi)
 		}
 
-		// DATA TUGAS (KANAN) ---
+		// DATA TUGAS (KANAN)
 		tglT, namaT, durasi, prioritas, status, tNo := "", "", "", "", "", ""
 		if i < data.T_tugas {
 			t := data.daftar_tugas[i]
@@ -93,7 +98,7 @@ func PrintTabel(data Pengguna){
 			}
 		}
 
-		// 4. Cetak satu baris untuk kedua tabel (kiri dan kanan)
+		// Cetak satu baris untuk kedua tabel (kiri dan kanan)
 		fmt.Printf("║ %-3s╎ %-8s╎ %-54s╎ %-16s║%s║ %-3s╎ %-8s╎ %-31s╎ %-18s╎ %-10s╎ %-7s║\n",
 			sNo, tglS, deskripsi, skor, "   ", tNo, tglT, namaT, durasi, prioritas, status)
 	}
@@ -154,6 +159,7 @@ func isiDeskripsi(P *Pengguna, kataPart *arrTemp2, i int) {
 	P.daftar_suasana[i].deskripsi_perasaan = gabungDeskripsi(kataPart, panjangKata)
 }
 
+//fungsi untuk menggabung kata kata deskripsi perasaan
 func gabungDeskripsi(kataPart *arrTemp2, panjang int) string {
 	var j int
 	var hasil string
@@ -240,7 +246,7 @@ func presentaseTugasHarian(data *Pengguna, hari int, bulan int, tahun int)float6
 			tTugas++
 			if data.daftar_tugas[i].selesai == 1{
 				done++
-				
+
 			}
 		}
 	}
@@ -319,7 +325,7 @@ func GrafikTrenMood(data *arrTemp, n int) {
 		fmt.Println() 
 	}
 }
-
+// fungsi load data array dummy
 func loadData(data *Pengguna) {
 	file, err := os.Open("sData.txt")
 	if err != nil {
@@ -356,7 +362,7 @@ func loadData(data *Pengguna) {
 }
 
 // fungsi percakapan dibawah 
-	//LOG file aja
+	//membaca log data
 func openLog(){
 	file, err := os.Open("percakapan.log")
 	if err != nil {

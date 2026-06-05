@@ -17,7 +17,7 @@ func main(){
 	loadData(&data)
 	run = true
 	for run {
-		//funcsi print
+		//fungsi print tabel
 		cls()
 		showHeader()
 		showTables(data)
@@ -34,14 +34,14 @@ func main(){
 		fmt.Print("⟢ ")
 		fmt.Scan(&oHome)
 		switch oHome {
-		case 0:
+		case 0: //log percakapan
 			cls()
 			openLog()
 			fmt.Print("\n\n(5)Close log")
 			fmt.Println()
 			fmt.Print("⟢ ")
 			fmt.Scan(&oHome)
-		case 1:
+		case 1: //edit data
 			edit = true
 			for edit {
 				cls()
@@ -55,7 +55,7 @@ func main(){
 				fmt.Print("⟢ ")
 				fmt.Scan(&oEdit)
 				switch oEdit {
-				case 1:
+				case 1: //input data
 					input = true
 					for input {
 						cls()
@@ -73,7 +73,6 @@ func main(){
 							fmt.Println("Millow: Alrighty! what do you feel today? ⋋⁠✿⁠ ⁠⁰⁠ ⁠o⁠ ⁠⁰⁠ ⁠✿⁠⋌")
 							fmt.Println("--------------------------------------------------------")
 							fmt.Println()
-							//fmt.Print("langusng input saja kalau sudah di akhir atau ingin kembali ke menu sebelumnya ketulis END ")
 							fmt.Println("Masukkan skor emosi, tanggal, dan deskripsi perasaan secara berurutan! (❁´◡❁)`")
 							fmt.Println("--------------------------------------------------------------------------------")
 							fmt.Println("Note!")
@@ -116,11 +115,11 @@ func main(){
 					showTables(data)
 					fmt.Println("Millow: Bye-bye memoriee~ (⁠╥⁠﹏⁠╥⁠)")
 					deleteData(&data)
-				case 4:
+				case 4://back
 					edit = false
 				}
 			}
-		case 2: // ini search anjay
+		case 2: // ini search
 			search = true
 			for search {
 				cls()
@@ -132,7 +131,7 @@ func main(){
 				fmt.Print("⟢ ")
 				fmt.Scan(&oSearch)
 				switch oSearch {
-				case 1: 
+				case 1: //by keyword
 					keyword = true 
 					cls()
 					showTables(data)
@@ -144,7 +143,7 @@ func main(){
 						fmt.Print("⟢ ")
 						fmt.Scan(&oKey)
 						switch oKey {
-						case 1:
+						case 1://mood
 							cls()
 							showTables(data)
 							fmt.Println("Millow: Detective Millow Holmes, ready for duty! (⌐■_■)ノ🔎")
@@ -152,7 +151,7 @@ func main(){
 							fmt.Print("⟢ ")
 							fmt.Scan(&cari)
 							sequentialMood(data, cari, data.T_suasana)
-						case 2:
+						case 2://task
 							cls()
 							showTables(data)
 							fmt.Println("Millow: Detective Millow Holmes, ready for duty! (⌐■_■)ノ🔎")
@@ -160,11 +159,11 @@ func main(){
 							fmt.Print("⟢ ")
 							fmt.Scan(&cari)
 							sequentialTugas(data, cari, data.T_tugas)
-						case 3:
+						case 3: //back
 							keyword = false
 						}
 					}
-				case 2: 
+				case 2: //date
 					date = true 
 					cls()
 					showTables(data)
@@ -176,7 +175,7 @@ func main(){
 						fmt.Print("⟢ ")
 						fmt.Scan(&oDate)
 						switch oDate {
-						case 1:
+						case 1: //mood
 							cls()
 							showTables(data)
 							fmt.Println("Millow: Detective Millow Holmes, ready for duty! (⌐■_■)ノ🔎")
@@ -185,7 +184,7 @@ func main(){
 							fmt.Print("⟢ ")
 							fmt.Scan(&d, &m, &y)
 							binaryMood(data, data.T_suasana, d, m, y)
-						case 2:
+						case 2: //task
 							cls()
 							showTables(data)
 							fmt.Println("Millow: Detective Millow Holmes, ready for duty! (⌐■_■)ノ🔎")
@@ -194,11 +193,11 @@ func main(){
 							fmt.Print("⟢ ")
 							fmt.Scan(&d, &m, &y)
 							binaryTugas(data, data.T_tugas, d, m, y)
-						case 3:
+						case 3: //back
 							date = false
 						}
 					}
-				case 3:
+				case 3: //back
 					search = false
 				}
 			}
@@ -214,7 +213,7 @@ func main(){
 				fmt.Print("⟢ ")
 				fmt.Scan(&oSort)
 				switch oSort {
-				case 1:
+				case 1://selection sort
 					sSort = true
 					for sSort {
 						cls()
@@ -226,7 +225,7 @@ func main(){
 						fmt.Print("⟢ ")
 						fmt.Scan(&oSel)
 						switch oSel {
-						case 1:
+						case 1://accending
 							cls()
 							showTables(data)
 							fmt.Println("Millow: (⊃＞ ⌂ ＜)⊃━✿✿✿ Magiiiiiic Sort Maniaaaaa!")
@@ -235,7 +234,7 @@ func main(){
 							fmt.Scan(&sortBy)
 							selectionAsc(&data, data.T_suasana, sortBy)
 							//show data
-						case 2:
+						case 2://decending
 							cls()
 							showTables(data)
 							fmt.Println("Millow: (⊃＞ ⌂ ＜)⊃━✿✿✿ Magiiiiiic Sort Maniaaaaa!")
@@ -244,11 +243,11 @@ func main(){
 							fmt.Scan(&sortBy)
 							selectionDes(&data, data.T_suasana, sortBy)
 							//show data
-						case 3:
+						case 3://back
 							sSort = false
 						} 
 					}
-				case 2:
+				case 2: //insertion sort
 					iSort = true
 					for iSort {
 						cls()
@@ -260,7 +259,7 @@ func main(){
 						fmt.Print("⟢ ")
 						fmt.Scan(&oIns)
 						switch oIns {
-						case 1:
+						case 1: //ascending
 							cls()
 							showTables(data)
 							fmt.Println("Millow: (⊃＞ ⌂ ＜)⊃━✿✿✿ Magiiiiiic Sort Maniaaaaa!")
@@ -268,7 +267,7 @@ func main(){
 							fmt.Println("⪩ (2)By duration")
 							fmt.Scan(&sortBy)
 							insertionAsc(&data, data.T_tugas, sortBy)
-						case 2:
+						case 2: //descending
 							cls()
 							showTables(data)
 							fmt.Println("Millow: (⊃＞ ⌂ ＜)⊃━✿✿✿ Magiiiiiic Sort Maniaaaaa!")
@@ -277,15 +276,15 @@ func main(){
 							fmt.Scan(&sortBy)
 							insertionDes(&data, data.T_tugas, sortBy)
 							//show data
-						case 3:
+						case 3: //back
 							iSort = false
 						}
 					}
-				case 3:
+				case 3: //back
 					sort = false
 				}
 			}
-		case 4:
+		case 4://statistik tren
 			tren = true
 			cls()
 			showTables(data)
@@ -297,12 +296,12 @@ func main(){
 				fmt.Print("⟢ ")
 				fmt.Scan(&oTren)
 				switch oTren {
-				case 1:
+				case 1://mood
 					cls()
 					showTables(data)
 					fmt.Println("Millow: Lets see hows your mood this week~ ( ✌︎'ω')✌︎")
 					presentaseSuasanaMingguan(&data, &Temp)
-				case 2:
+				case 2://task
 					cls()
 					showTables(data)
 					var hari, bulan, tahun int
@@ -312,11 +311,11 @@ func main(){
 					fmt.Scan(&tgl)
 					fmt.Sscanf(tgl, "%d/%d/%d\n", &hari, &bulan, &tahun)
 					fmt.Printf("Presentase tugas selesai: %.2f%%\n\n\n", presentaseTugasHarian(&data, hari, bulan, tahun))
-				case 3:
+				case 3://back
 					tren = false
 				}
 			}
-		case 5:
+		case 5://out atau close
 			fmt.Println("Millow: Buh-bye! See ya later! (⁠~⁠‾⁠▿⁠‾⁠)⁠~")
 			run = false
 		}
