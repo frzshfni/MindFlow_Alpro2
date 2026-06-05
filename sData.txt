@@ -1,0 +1,10 @@
+TUGAS|Revisi_Laporan_Praktikum|05/06/2026|120|1|0
+TUGAS|Bikin_PPT_Matkul_AI|05/06/2026|90|2|0
+TUGAS|Ngerjain_Tubes_Alpro|05/06/2026|180|1|1
+TUGAS|Rapat_Anggota_Himpunan|10/06/2026|60|3|0
+TUGAS|Belajar_Struct_Golang|12/06/2026|45|2|1
+SUASANA|80|05/06/2026|Cukup produktif hari ini.
+SUASANA|40|06/06/2026|Pusing banyak revisian.
+SUASANA|90|08/06/2026|Yes! Tubes akhirnya selesai.
+SUASANA|50|10/06/2026|Agak lelah habis rapat.
+SUASANA|70|12/06/2026|Lumayan paham materi Go.

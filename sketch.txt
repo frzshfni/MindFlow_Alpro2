@@ -1,0 +1,138 @@
+header
+                                                                    ╔═══════════════════════════════════════════════════════════════════════════════════╗
+                                                                    ║                                                                                   ║
+                                                                    ║                                                                                   ║
+                                                                    ║                                    🔮MINDFLOW☁️                                  ║
+                                                                    ║                   Your daily companion for a calmer and clearer day!              ║
+                                                                    ║                                                                                   ║
+                                                                    ║                                                                                   ║
+                                                                    ╚═══════════════════════════════════════════════════════════════════════════════════╝
+                         ╔═══════════════════════════════════════════════════════════════════════════════════╗ ╔═══════════════════════════════════════════════════════════════════════════════════╗ 
+                         ║                                                                                   ║ ║                                                                                   ║
+                         ║                                                                                   ║ ║                                                                                   ║
+                         ║                                Tabel Suasana Hati                                 ║ ║                                     Tabel tugas                                   ║
+                         ║                                 ✨Moodie-Mood!✨                                 ║ ║                                    🚀Doie-Do!🚀                                  ║
+                         ║                                                                                   ║ ║                                                                                   ║
+                         ║                                                                                   ║ ║                                                                                   ║
+                         ╠═════════╤═══════════════════════════════════════════════════════╤═════════════════╣ ╠═════════╤════════════════════════════════╤═══════════════════╤═══════════╤════════╣
+                         ║ Tanggal ╎                  Deskripsi Perasaan                   ╎    Skor Emosi   ║ ║ Tanggal ╎            Nama Tugas          ╎ Durasi Pengerjaan ╎ Prioritas ╎ Status ║
+                         ╠═════════╪═══════════════════════════════════════════════════════╪═════════════════╣ ╠═════════╪════════════════════════════════╪═══════════════════╪═══════════╪════════╣
+                         ║         ╎                                                       ╎                 ║ ║         ╎                                ╎                   ╎           ╎        ║
+                         ║         ╎                                                       ╎                 ║ ║         ╎                                ╎                   ╎           ╎        ║
+                         ║         ╎                                                       ╎                 ║ ║         ╎                                ╎                   ╎           ╎        ║                                                                                    
+Homepage
+    Hi-ya, user! 
+    Millow's here! ✧⁠◝⁠(⁠⁰⁠▿⁠⁰⁠)⁠◜⁠✧
+    What are we doing today? ♪⁠ヽ⁠(⁠･⁠ˇ⁠∀⁠ˇ⁠･⁠ゞ⁠)
+Menu awal
+⪩ (1)Edit data
+⪩ (2)Search data
+⪩ (3)Sort data
+⪩ (4)Trend statistics
+⪩ (5)Exit
+
+1
+⪩ (1)Input data
+    ⪩ (1)Mood
+    Millow:
+        Alrighty! what do you feel today? ⋋⁠✿⁠ ⁠⁰⁠ ⁠o⁠ ⁠⁰⁠ ⁠✿⁠⋌
+        ⪨ Back ←⁠(⁠*⁠꒪⁠ヮ⁠꒪⁠*⁠) ke menu tabel
+    ⪨ Back ←⁠(⁠*⁠꒪⁠ヮ⁠꒪⁠*⁠)ke menu edit
+    ⪩ (2)Task
+    Millow:
+        Alrighty! what task do we have today? ⋋⁠✿⁠ ⁠⁰⁠ ⁠o⁠ ⁠⁰⁠ ⁠✿⁠⋌
+        ⪨ Back ←⁠(⁠*⁠꒪⁠ヮ⁠꒪⁠*⁠) ke menu tabel
+    ⪨ (3)Back ←⁠(⁠*⁠꒪⁠ヮ⁠꒪⁠*⁠) ke menu edit
+⪩ (2)Replace data
+Millow:
+    Hmm...What do ya want to change, besto friendo? (⁠｡⁠•̀⁠ᴗ⁠-⁠)⁠✧
+    ⪨ Back ←⁠(⁠*⁠꒪⁠ヮ⁠꒪⁠*⁠) ke menu edit
+⪩ (3)Delete data
+Millow:
+    Bye-bye memoriee~ (⁠╥⁠﹏⁠╥⁠)
+    ⪨ Back ←⁠(⁠*⁠꒪⁠ヮ⁠꒪⁠*⁠) ke menu edit
+⪨ (4)Back ←⁠(⁠*⁠꒪⁠ヮ⁠꒪⁠*⁠) ke homepage
+
+2
+Menu Cari data
+list jobdesk romusha
+1. input data both✓
+2. edit data both✓
+3. delete data both✓
+    Millow:
+        Detective Millow Holmes, ready for duty! (⌐■_■)ノ🔎
+    > Cari > Ketemu
+        Caught ya! Detective Millow, reporting for duty! ✨(🫵⌐■_■)
+    ⪨ Back ←⁠(⁠*⁠꒪⁠ヮ⁠꒪⁠*⁠) ke menu search
+⪩ (2)Search by date
+    Millow:
+        Detective Millow Holmes, ready for duty! (⌐■_■)ノ🔎
+    > Cari > Ketemu
+        Caught ya! Detective Millow, reporting for duty! ✨(🫵⌐■_■)
+    ⪨ Back ←⁠(⁠*⁠꒪⁠ヮ⁠꒪⁠*⁠) menu search
+⪨ (3)Back ←⁠(⁠*⁠꒪⁠ヮ⁠꒪⁠*⁠) ke homepage
+
+3
+Menu Urutkan data
+⪩ (1)Selection Sort
+    ⪩ (1)Ascending > input sortby 
+    (Millow:
+        (⊃＞ ⌂ ＜)⊃━✿✿✿ Magiiiiiic Sort Maniaaaaa!
+    )
+    > hasil
+        ⪨ Back ←⁠(⁠*⁠꒪⁠ヮ⁠꒪⁠*⁠) ke menu ascen descen
+    ⪨ Back ←⁠(⁠*⁠꒪⁠ヮ⁠꒪⁠*⁠) ke menu sort
+    ⪩ (2)Descending > input sortby 
+    (Millow:
+        (⊃＞ ⌂ ＜)⊃━✿✿✿ Magiiiiiic Sort Maniaaaaa!
+    )
+    > hasil
+        ⪨ Back ←⁠(⁠*⁠꒪⁠ヮ⁠꒪⁠*⁠) ke menu ascen descen
+    ⪨ Back ←⁠(⁠*⁠꒪⁠ヮ⁠꒪⁠*⁠) ke menu sort
+⪩ (2)Insertion Sort
+    ⪩ (1)Ascending > input sortby 
+    (Millow:
+        (⊃＞ ⌂ ＜)⊃━✿✿✿ Magiiiiiic Sort Maniaaaaa!
+    )
+    > hasil
+        ⪨ Back ←⁠(⁠*⁠꒪⁠ヮ⁠꒪⁠*⁠) ke menu ascen Descen
+    ⪨ Back ←⁠(⁠*⁠꒪⁠ヮ⁠꒪⁠*⁠)ke menu sort
+    ⪩ (2)Descending > input sortby 
+    (Millow:
+        (⊃＞ ⌂ ＜)⊃━✿✿✿ Magiiiiiic Sort Maniaaaaa!
+    )
+    > hasil
+        ⪨ Back ←⁠(⁠*⁠꒪⁠ヮ⁠꒪⁠*⁠) ke menu ascen descen
+    ⪨ Back ←⁠(⁠*⁠꒪⁠ヮ⁠꒪⁠*⁠) ke menu sort
+⪨ (3)Back ←⁠(⁠*⁠꒪⁠ヮ⁠꒪⁠*⁠) ke homepage
+
+4
+tren
+⪩ (1)Weekly Mood
+Millow: Lets see hows your mood this week~ ( ✌︎'ω')✌︎
+⪩ (2)Daily Tasks
+Millow: Ooh, ooh! Time to reveal your daily stats! ＼( ° ∇ ° )／
+⪨ (3)Back ←⁠(⁠*⁠꒪⁠ヮ⁠꒪⁠*⁠)
+
+5
+Exit
+Millow: Buh-bye! See ya later! (⁠~⁠‾⁠▿⁠‾⁠)⁠~
+    
+
+
+list jobdesk romusha
+1. input data both✓
+2. edit data both✓
+3. delete data both✓
+4. catatan emosi(skor, deskripsi, tgl, bln, thn, total hari)✓
+5. data tugas(nama, durasi, prior, selesai, tgl, bln, thn, total hari)✓
+6. sequen search by kata kunci both✓
+7. binary search by date both✓
+8. selection sort asc&des by prior dan durasi struct tugas✓
+9. insertion sort asc&des by prior dan durasi struct tugas✓
+10. statistik tren mood/minggu, selesai tugas harian✓
+11. log riwayat percakapan
+
+
+revisi "nomer" ubahdata dan deletedata
+input data tugas 
