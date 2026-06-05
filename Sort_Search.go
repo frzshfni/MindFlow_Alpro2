@@ -8,8 +8,9 @@ import (
 func selectionAsc(T *Pengguna, max int, sortBy int) {
 	/*{I.S.terdefinisi array T yang telah berisi max data Pengguna
 	F.S.(menampilkan array T yang telah terurut // notes: mungkin di while loop main) 
-	mengurutkan secara Ascending berdasarkan sortBy yang telah diketahui menggunakan prosedur Selection
-	1 untuk sort berdasarkan prioritas, 2 berdasarkan durasi}*/
+	Deskripsi: Prosedur ini berfungsi untuk mengurutkan array T secara Ascending berdasarkan sortBy 
+	yang telah diketahui menggunakan prosedur Selection, pengguna diminta untuk menginput nomor 1 
+	untuk sort berdasarkan prioritas, dan 2 berdasarkan durasi*/
 	var pass, k, acuan int
 	var temp tugas
 
@@ -37,7 +38,9 @@ func selectionAsc(T *Pengguna, max int, sortBy int) {
 func selectionDes(T *Pengguna, max int, sortBy int) {
 	/*{I.S.terdefinisi array T yang telah berisi max data Pengguna
 	F.S.(menampilkan array T yang telah terurut // notes: mungkin di while loop main)// 
-	mengurutkan secara Descending berdasarkan sortBy yang telah diketahui menggunakan prosedur Selection}
+	Deskripsi: Prosedur ini berfungsi untuk mengurutkan array T secara Descending berdasarkan 
+	sortBy yang telah diketahui menggunakan prosedur Selection, pengguna diminta untuk menginput 
+	nomor 1 untuk sort berdasarkan prioritas, dan 2 berdasarkan durasi
 	*/
 	var pass, k, acuan int
 	var temp tugas
@@ -65,7 +68,9 @@ func selectionDes(T *Pengguna, max int, sortBy int) {
 func insertionAsc(T *Pengguna, max int, sortBy int) {
 	//{I.S.terdefinisi array T yang telah berisi max data pengguna
 	//F.S.(menampilkan array T yang telah terurut // notes: mungkin di while loop main)
-	// mengurutkan secara Ascending berdasarkan sortBy yang telah diketahui menggunakan prosedur Insertion}
+	// Deskripsi: Prosedur ini berfungsi untuk mengurutkan array T secara Ascending berdasarkan sortBy yang 
+	// telah diketahui menggunakan prosedur Insertion, pengguna diminta untuk menginput nomor 1 
+	// untuk sort berdasarkan prioritas, dan 2 berdasarkan durasi
 	var k, pass int
 	var temp tugas
 	var isLebihKecil, stop bool
@@ -94,7 +99,9 @@ func insertionAsc(T *Pengguna, max int, sortBy int) {
 func insertionDes(T *Pengguna, max int, sortBy int) {
 	//{I.S.terdefinisi array T yang telah berisi max data pengguna
 	//F.S.(menampilkan array T yang telah terurut // notes: mungkin di while loop main)
-	// mengurutkan secara Descending berdasarkan sortBy yang telah diketahui menggunakan prosedur Insertion}
+	// Deskripsi: Prosedur ini berfungsi untuk mengurutkan array T secara Descending berdasarkan 
+	// sortBy yang telah diketahui menggunakan prosedur Insertion, pengguna diminta untuk 
+	// menginput nomor 1 untuk sort berdasarkan prioritas, dan 2 berdasarkan durasi.
 	var k, pass int
 	var temp tugas
 	var isLebihBesar, stop bool
@@ -123,7 +130,11 @@ func insertionDes(T *Pengguna, max int, sortBy int) {
 
 func totTDays(T *Pengguna) {
 	//{I.S. terdefinisi array T yang merupakan daftar tugas pengguna
-	//F.S. mengisi array T[idx].days dengan total hari berdasarkan perhitungan T[idx]day, T[idx]mon, dan T[idx]year}
+	//F.S. mengisi array T.daftar_tugas[idx].days dengan total hari berdasarkan perhitungan T.daftar_tugas[idx]day, 
+	//T.daftar_tugas[idx]mon, dan T.daftar_tugas[idx]year}
+	//Deskripsi: Prosedur ini berfungsi untuk menghitung jumlah hari berdasarkan hari, bulan,
+	//dan tahun yang telah diketahui pada array pada masing-masing index lalu menyimpannya ke dalam 
+	//array T.daftar_tugas[idx].days sesuai indexnya.
 	var n, i int
 	n = T.T_tugas
 	for i = 0; i < n; i++ {
@@ -134,7 +145,10 @@ func totTDays(T *Pengguna) {
 func binaryTugas(T Pengguna, N, d, m, y int) {
 	//{I.S.terdefinisi array T, nilai d (tanggal), m (month), dan y (year)
 	//F.S. menampilkan hasil pencarian secara binary berdasarkan jumlah hari dari waktu yang diketahui}
-	
+	//Deskripsi: Prosedur ini berfungsi untuk melakukan pencarian data tertentu pada array T dengan mengurutkan array T 
+	//terlebih dahulu secara ascending menggunakan metode selection lalu membandingkan jumlah hari setiap data dengan 
+	//jumlah hari dari input waktu yang dicari.Prosedur ini memanggil prosedur TotTDays untuk menghitung 
+	//jumlah hari berdasarkan hari, bulan, dan tahun dari masing-masing index data tugas.
 	var left, mid, right int
 	var days, found int
 	var done bool
@@ -187,8 +201,12 @@ func binaryTugas(T Pengguna, N, d, m, y int) {
 }
 
 func totMDays(M *Pengguna) {
-	//{I.S. terdefinisi array T yang merupakan daftar suasana hati pengguna
-	//F.S. mengisi array T[idx].days dengan total hari berdasarkan perhitungan T[idx]day, T[idx]mon, dan T[idx]year}
+	//{I.S. terdefinisi array M yang merupakan daftar suasana hati pengguna
+	//F.S. mengisi array M.daftar_suasana[idx].days dengan total hari berdasarkan perhitungan M.daftar_suasana[idx]day, 
+	//M.daftar_suasana[idx]mon, dan M.daftar_suasana[idx]year}
+	//Deskripsi: Prosedur ini berfungsi untuk menghitung jumlah hari berdasarkan hari, bulan,
+	//dan tahun yang telah diketahui pada array pada masing-masing index lalu menyimpannya ke dalam 
+	//array M.daftar_suasana[idx].days sesuai indexnya.
 	var n, i int
 	n = M.T_suasana
 	for i = 0; i < n; i++ {
@@ -199,6 +217,10 @@ func totMDays(M *Pengguna) {
 func binaryMood(M Pengguna, N, d, m, y int) {
 	//{I.S.terdefinisi array M, nilai d (tanggal), m (month), dan y (year)
 	//F.S. menampilkan hasil pencarian secara binary berdasarkan jumlah hari dari waktu yang diketahui}
+	//Deskripsi: Prosedur ini berfungsi untuk melakukan pencarian data tertentu pada array M dengan mengurutkan array M 
+	//terlebih dahulu secara ascending menggunakan metode selection lalu membandingkan jumlah hari setiap data dengan 
+	//jumlah hari dari input waktu yang dicari.Prosedur ini memanggil prosedur TotMDays untuk menghitung 
+	//jumlah hari berdasarkan hari, bulan, dan tahun dari masing-masing index data suasana hati.
 	var left, mid, right int
 	var days, found int
 	var done bool
@@ -252,6 +274,8 @@ func binaryMood(M Pengguna, N, d, m, y int) {
 func sequentialTugas(T Pengguna, cari string, max int) {
 	//{I.S.terdefinisi array T yang telah berisi max data daftar_tuga dan kata kunci cari berisi nama_tugas
 	//F.S.menampilkan data tugas berdasarkan kata kunci atau tanggal yang dicari}	
+	//Deskripsi: Prosedur ini berfungsi untuk mencari data tertentu pada array T dengan cara membandingkan
+	//nama tugas yang dicari dengan setiap nama tugas pada array T.
 	var k int
 	var found bool
 	found = false
@@ -279,7 +303,8 @@ func sequentialTugas(T Pengguna, cari string, max int) {
 func sequentialMood(M Pengguna, cari string, max int) {
 	// {I.S. terdefinisi array M yang telah berisi max data daftar_suasana
 	// F.S. menampilkan SEMUA catatan emosi berdasarkan kata kunci di deskripsi_perasaan}
-	
+	//Deskripsi: Prosedur ini berfungsi untuk mencari data tertentu pada array M dengan cara mengecek
+	//setiap data pada array M apabila terdapat data yang deskripsi perasaannya mengandung kata yang dicari.
 	var k int
 	var found bool = false
 	

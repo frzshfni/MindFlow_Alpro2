@@ -232,7 +232,7 @@ func main(){
 							fmt.Println("⪩ (1)By priority")
 							fmt.Println("⪩ (2)By duration")
 							fmt.Scan(&sortBy)
-							selectionAsc(&data, data.T_suasana, sortBy)
+							selectionAsc(&data, data.T_tugas, sortBy)
 							//show data
 						case 2://decending
 							cls()
@@ -241,7 +241,7 @@ func main(){
 							fmt.Println("⪩ (1)By priority")
 							fmt.Println("⪩ (2)By duration")
 							fmt.Scan(&sortBy)
-							selectionDes(&data, data.T_suasana, sortBy)
+							selectionDes(&data, data.T_tugas, sortBy)
 							//show data
 						case 3://back
 							sSort = false

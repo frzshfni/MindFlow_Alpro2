@@ -12,6 +12,9 @@ import (
 
 //fungsi clear terminal
 func cls() {
+	/*{menghapus atau melakukan clear pada terminal sehingga hasil berikutnya terlihat lebih rapi}
+	//Deskripsi: Prosedur yang berfungsi untuk melakukan clear pada terminal setiap kali ia dipanggil.
+	*/
 	var cmd *exec.Cmd
 	if runtime.GOOS == "windows" {
 		cmd = exec.Command("cmd", "/c", "cls")
@@ -24,6 +27,8 @@ func cls() {
 
 //prosedur untuk menampilkan template header
 func showHeader() {
+	//{menampilkan template header atau judul saat program dijalankan}
+	//Deskripsi: Prosedur yang berfungsi untuk menampilkan template header yang telah dibuat secara otomatis saat dipanggil tanpa membutuhkan parameter apapun.
 	var pad string = ""
 	fmt.Printf("%-45s╔═══════════════════════════════════════════════════════════════════════════════════╗\n", pad)
 	fmt.Printf("%-45s║                                                                                   ║\n", pad)
@@ -37,6 +42,8 @@ func showHeader() {
 
 //prosedur untuk menampilkan template tabel data
 func showTables(T Pengguna) {
+	//{menampilkan template judul tabel data suasana hati dan tabel data tugas}
+	//Deskripsi: prosedur untuk menampilkan template tabel suasana dan tabel tugas yang telah dibuat secara bersampingan dari isi array dengan parameter array pengguna.
 	var gap string = "   " 
 
 	fmt.Printf("╔════════════════════════════════════════════════════════════════════════════════════════╗%s╔════════════════════════════════════════════════════════════════════════════════════════╗\n", gap)
@@ -55,6 +62,9 @@ func showTables(T Pengguna) {
 
 //prosedur untuk menampilkan isi tabel data
 func PrintTabel(data Pengguna){
+	//{I.S.terdefinisi array data pengguna
+	//F.S.menampilkan array data sesuai dengan template susunan pada tabel}
+	//Deskripsi: Prosedur yang berfungsi untuk mengisi data pada tabel sesuai dengan format yang telah dirancang dengan array data yang ingin ditampilkan.
 	var maxRows int
 	maxRows = data.T_suasana
 	if data.T_tugas > maxRows {
@@ -65,8 +75,7 @@ func PrintTabel(data Pengguna){
 		fmt.Printf("║ %-3s╎ %-8s╎ %-54s╎ %-16s║%s║ %-3s╎ %-8s╎ %-31s╎ %-18s╎ %-10s╎ %-7s║\n",
 			"", "", "", "", "", "   ", "", "", "", "", "", "")
 	}
-
-	// 3. Looping data
+	
 	for i := 0; i < maxRows; i++ {
 		// DATA SUASANA (KIRI)
 		tglS, deskripsi, skor, sNo := "", "", "", ""
@@ -108,6 +117,9 @@ func PrintTabel(data Pengguna){
 func inputDataTugas(data *Pengguna) {
 	/* I.S. terdefinisi array T yang kosong atau terisi data minimal 1
 	F.S. array data terisi data baru ke n*/
+	//Deskripsi: Prosedur yang berfungsi untuk melakukan input dari user untuk mengisi array daftar_tugas yang 
+	//merupakan bagian dari array Pengguna. User diminta untuk melakukan input temp yang merupakan nama tugas, 
+	//lalu diikuti dengan input tanggal, durasi pengerjaan, prioritas, dan status penyelesaian.
 	var temp string
 	var i int
 	fmt.Println()
@@ -126,7 +138,10 @@ func inputDataTugas(data *Pengguna) {
 func inputDataSuasana(data *Pengguna, kataPart *arrTemp2){
 	/*I.S. terdefinisi array data suasana pengguna kosong atau ada minimal 1.
 	Proses : data suasana untuk pengguna secara berurutan diinput dan Input untuk seorang pengguna berhenti jika tanggal diisi "0 / stop"
-	F.S. data suasana untuk masing-masing pengguna terisi sebanyak k dan disimpan di dalam array data T_suasana pengguna */
+	F.S. data suasana untuk masing-masing pengguna terisi sebanyak k dan disimpan di dalam array data T_suasana pengguna 
+	Deskripsi: prosedur yang berfungsi untuk menerima input dari user untuk mengisi array daftar_suasana yang merupakan bagian dari array Pengguna.
+	User diminta untuk melakukan input temp yang merupakan skor emosi, lalu diikuti dengan input tanggal dan deskripsi perasaaan, prosedur ini memanggil prosedur lain
+	yaitu isiDeskripsi untuk menyempurnakan hasil input deskripsi perasaan.*/
 	var temp int
 	var k int 
 	
@@ -142,12 +157,15 @@ func inputDataSuasana(data *Pengguna, kataPart *arrTemp2){
 		fmt.Scan(&temp)
 		k++
 	}
-//
 	data.T_suasana = k
 }
 
 // Input kata dengan spasi dan diakhiri dengan titik (.)
 func isiDeskripsi(P *Pengguna, kataPart *arrTemp2, i int) {
+	//{I.S.terdefinisi array P, array kataPart, serta i berupa index array
+	//F.S.menggabungkan seluruh array kataPart menjadi sebuah string menggunakan prosedur gabungDeskripsi dan menyimpannya di array P}
+	//Deskripsi: prosedur yang berfungsi untuk menerima string deskrisi perasaan perkata kata berdasarkan yang telah diketahui dari prosedur inputDataSuasana
+	//ke dalam array p index ke i. Prosedur ini memanggil prosedur gabungDeskripsi untuk membantu proses penggabungan array.
 	var j int = 0
 
 	fmt.Scan(&kataPart[j])
@@ -161,12 +179,16 @@ func isiDeskripsi(P *Pengguna, kataPart *arrTemp2, i int) {
 
 //fungsi untuk menggabung kata kata deskripsi perasaan
 func gabungDeskripsi(kataPart *arrTemp2, panjang int) string {
+	//{mengembalikan hasil berupa gabungan array kataPart menjadi sebuah string}
+	//Deskripsi: Fungsi yang befungsi untuk menggabungkan kata kata dari setiap isi dari 
+	//index array kataPart yang telah diketahui dari prosedur isiDeskripsi menjadi sebuah
+	//string baru berupa kalimat dengan spasi
 	var j int
 	var hasil string
 	
 	for j = 0; j < panjang; j++ {
 		if j > 0 {
-			hasil += " "
+			hasil += " "p
 		}
 		hasil += kataPart[j]
 	}
@@ -178,6 +200,10 @@ func gabungDeskripsi(kataPart *arrTemp2, panjang int) string {
 func deleteData(data *Pengguna)bool{
 	/*I.S. terdefinisi array data > 0
 	F.S. data pengguna terdelete sesuai dengan input dari pengguna	
+	Deskripsi: prosedur ini berfungsi untuk menghapus data array daftar_suasana atau daftar_tugas 
+	dari array Pengguna pada index tertentu dengan meminta pengguna untuk menginput nama dari
+	tabel beserta nomor dari data yang ingin dihapus. Setelah data dihapus, data dari index setelahnya akan naik 
+	untuk menggantikan sehingga jumlah index array yang terisi berkurang sebesar 1.
 	*/
 	var jenis string
 	var Nomer int
@@ -187,7 +213,7 @@ func deleteData(data *Pengguna)bool{
 	fmt.Print("Data yang akan dihapus nomor:")
 	fmt.Scan(&Nomer)
 	if jenis == "Tugas"{
-		for i:= Nomer; i < data.T_suasana; i++{
+		for i:= Nomer; i < data.T_tugas; i++{
 			data.daftar_tugas[i-1] = data.daftar_tugas[i]
 		}
 		data.T_tugas--
@@ -208,6 +234,9 @@ func deleteData(data *Pengguna)bool{
 func UbahData(data *Pengguna, kataPart *arrTemp2){
 	/*I.S. terdefini array data > 0
 	F.S. mengubah data i yang berada di dalam array
+	Deskripsi: Prosedur yang berfungsi untuk mengubah data yang berada pada array index tertentu
+	dengan data baru yang sesuai dengan input data yang baru. Pengguna diminta menginput nama dari
+	tabel beserta nomor dari data yang ingin diganti.
 	*/
 	var Jenis string
 	var Nomer int
@@ -219,7 +248,7 @@ func UbahData(data *Pengguna, kataPart *arrTemp2){
 		fmt.Println("Masukkan data nama tugas, tanggal(), durasi, skala prioritas, status selesai (1 = selesai, 0 = belum) tugas secara berurutan")
 		fmt.Println("-Contoh format: Tugas_Alpro_Sorting 13/06/2027 30 2 1-")
 		fmt.Scan(&data.daftar_tugas[Nomer-1].nama_tugas)
-		fmt.Scanf("%d/%d/%d", &data.daftar_tugas[Nomer].day, &data.daftar_tugas[Nomer].mon, &data.daftar_tugas[Nomer].year)
+		fmt.Scanf("%d/%d/%d", &data.daftar_tugas[Nomer-1].day, &data.daftar_tugas[Nomer-1].mon, &data.daftar_tugas[Nomer-1].year)
 		fmt.Scan(&data.daftar_tugas[Nomer-1].durasi_pengerjaan)
 		fmt.Scan(&data.daftar_tugas[Nomer-1].Prioritas)
 		fmt.Scan(&data.daftar_tugas[Nomer-1].selesai)
@@ -228,7 +257,7 @@ func UbahData(data *Pengguna, kataPart *arrTemp2){
 		fmt.Println("Masukkan skor emosi, tanggal, dan deskripsi perasaan secara berurutan! (❁´◡❁)`")
 		fmt.Println("-Contoh format: 50 13/06/2027 aku mau makan.-")
 		fmt.Scan(&data.daftar_suasana[Nomer-1].skor_emosi)
-		fmt.Scanf("%d/%d/%d", &data.daftar_suasana[Nomer-1].day, &data.daftar_suasana[Nomer].mon, &data.daftar_suasana[Nomer].year)
+		fmt.Scanf("%d/%d/%d", &data.daftar_suasana[Nomer-1].day, &data.daftar_suasana[Nomer-1].mon, &data.daftar_suasana[Nomer-1].year)
 		isiDeskripsi(data, kataPart, Nomer-1)
 		fmt.Println("Note!")
 	}
@@ -236,6 +265,12 @@ func UbahData(data *Pengguna, kataPart *arrTemp2){
 }
 // fungsi presentase tugas
 func presentaseTugasHarian(data *Pengguna, hari int, bulan int, tahun int)float64{
+	/*I.S. terdefinisi array data, hari, bulan dan tahun dalam integer
+	F.S. mengembalikan presentase tugas yang selesai pada hari bulan dan tahun tersebut 
+	Deskripsi: Fungsi ini berfungsi untuk menampilkan presentase tugas pada hari, bulan dan tahun tertentu.
+	Fungsi ini memanggil prosedur totTDays untuk menghitung jumlah hari berdasarkan hari, bulan, dan tahun 
+	dari masing-masing index data tugas.
+	*/
 	var tHari, done, tTugas int
 	done = 0
 	tTugas = 0
@@ -246,7 +281,6 @@ func presentaseTugasHarian(data *Pengguna, hari int, bulan int, tahun int)float6
 			tTugas++
 			if data.daftar_tugas[i].selesai == 1{
 				done++
-
 			}
 		}
 	}
@@ -258,6 +292,13 @@ func presentaseTugasHarian(data *Pengguna, hari int, bulan int, tahun int)float6
 }
 //fungsi presentase suasana
 func presentaseSuasanaMingguan(data *Pengguna, Temp *arrTemp){
+	/*I.S. terdefinisi array data dan array Temp
+	F.S. menampilkan grafik batang horizontal dari rentang waktu kurang lebih 7 hari/ 1 minggu 
+	Deskripsi: prosedur ini berfungsi untuk menampilkan presentase suasana pada hari, bulan dan tahun tertentu dalam rentang kurang lebih 7 hari pada isi dari array daftar_suasana 
+	pada array Pengguna. prosedur ini memanggil prosedur GrafikTrenMood untuk menampilkan presentase dalam grafik batang horizontal.
+	Prosedur ini juga memanggil totMDays untuk menghitung jumlah hari berdasarkan hari, bulan, dan tahun 
+	dari masing-masing index data suasana hati.
+	*/
 	var h1, b1, t1, h2, b2, t2 int
 	var tglAwal, tglAkhir string
 
@@ -289,6 +330,9 @@ func presentaseSuasanaMingguan(data *Pengguna, Temp *arrTemp){
 func GrafikTrenMood(data *arrTemp, n int) {
 	/* I.S. terdefinisi data Array yang sudah terisi.
 	F.S. : Menampilkan grafik batang horizontal 
+	Deskripsi: procedur ini menampilkan tren grafik yang sudah di adjust ke dalam skala 1 - 10 dari 
+	1 - 100 dengan menggunakan linear scaling atau normalisasi min-max
+	untuk menampilkan grafik batang secara horizontal langsung di terminal.
 	*/
 
 	var i int
@@ -327,6 +371,10 @@ func GrafikTrenMood(data *arrTemp, n int) {
 }
 // fungsi load data array dummy
 func loadData(data *Pengguna) {
+	/*I.S. terdefinisi array data kosong
+	F.S Array data terisi dengan data yang di load dari file sData.txt
+	Deskripsi: procedur ini membuka dan melakukan scan pada file sData.txt untuk dimuat ke dalam array data pengguna 
+	*/
 	file, err := os.Open("sData.txt")
 	if err != nil {
 		fmt.Println("Millow: Dummy data tidak ditemukan. Mulai dengan tabel kosong! ☁️")
@@ -364,6 +412,8 @@ func loadData(data *Pengguna) {
 // fungsi percakapan dibawah 
 	//membaca log data
 func openLog(){
+	// Deskripsi: Prosedur ini berfungsi untuk menampilkan log percakapan yang sudah 
+	// disiapkan dalam file percakapan.log.
 	file, err := os.Open("percakapan.log")
 	if err != nil {
 		fmt.Println("Millow: Wah, belum ada riwayat percakapan nih! ☁️")
