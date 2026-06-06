@@ -154,7 +154,7 @@ func binaryTugas(T Pengguna, N, d, m, y int) {
 	var done bool
 	totTDays(&T)
 	left = 0
-	right = N
+	right = N-1
 	days = d + ((m-1)*30) + ((y-1)*365)
 	done = false
 
@@ -226,16 +226,16 @@ func binaryMood(M Pengguna, N, d, m, y int) {
 	var done bool
 	totMDays(&M)
 	left = 0
-	right = N
+	right = N-1
 	days = d + ((m-1)*30) + ((y-1)*365)
 	done = false
 
 	//sort secara Asc	
 	var pass, k, acuan int
 	var temp Suasana
-	for pass = 1; pass < N-1; pass++ {
+	for pass = 1; pass < N; pass++ {
 		acuan = pass - 1
-		for k = pass; k < N-1; k++ {
+		for k = pass; k < N; k++ {
 			if M.daftar_suasana[acuan].days > M.daftar_suasana[k].days {
 				acuan = k
 			}

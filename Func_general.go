@@ -188,7 +188,7 @@ func gabungDeskripsi(kataPart *arrTemp2, panjang int) string {
 	
 	for j = 0; j < panjang; j++ {
 		if j > 0 {
-			hasil += " "p
+			hasil += " "
 		}
 		hasil += kataPart[j]
 	}
