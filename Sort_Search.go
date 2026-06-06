@@ -150,7 +150,7 @@ func binaryTugas(T Pengguna, N, d, m, y int) {
 	//jumlah hari dari input waktu yang dicari.Prosedur ini memanggil prosedur TotTDays untuk menghitung 
 	//jumlah hari berdasarkan hari, bulan, dan tahun dari masing-masing index data tugas.
 	var left, mid, right int
-	var days, found int
+	var days, found, awal, akhir int
 	var done bool
 	totTDays(&T)
 	left = 0
@@ -161,9 +161,9 @@ func binaryTugas(T Pengguna, N, d, m, y int) {
 	//sort secara Asc	
 	var pass, k, acuan int
 	var temp tugas
-	for pass = 1; pass < N-1; pass++ {
+	for pass = 1; pass < N; pass++ {
 		acuan = pass - 1
-		for k = pass; k < N-1; k++ {
+		for k = pass; k < N; k++ {
 			if T.daftar_tugas[acuan].days > T.daftar_tugas[k].days {
 				acuan = k
 			}
@@ -185,16 +185,26 @@ func binaryTugas(T Pengguna, N, d, m, y int) {
 		}
 	}
 	if done {
-		fmt.Println("Caught ya! Detective Millow, reporting for duty! ✨(🫵⌐■_■)")
-		fmt.Println()
-		fmt.Println("------------------------------------------------------------------------------")
-		fmt.Printf("Tanggal            : %02d/%02d/%d\n", T.daftar_tugas[found].day, T.daftar_tugas[found].mon, T.daftar_tugas[found].year)
-		fmt.Printf("Nama Tugas         : %s\n", T.daftar_tugas[found].nama_tugas)
-		fmt.Printf("Durasi Pengerjaan  : %d\n", T.daftar_tugas[found].durasi_pengerjaan)
-		fmt.Printf("Prioritas          : %d\n", T.daftar_tugas[found].Prioritas)
-		fmt.Printf("Status Penyelesaian: %d\n", T.daftar_tugas[found].selesai)
-		fmt.Println("------------------------------------------------------------------------------")
-		fmt.Println()
+		awal = found
+		for awal > 0 && days == T.daftar_tugas[awal-1].days {
+			awal--
+		}
+		akhir = found
+		for akhir < N-1 && days == T.daftar_tugas[akhir+1].days {
+			akhir++
+		}
+		for i := awal; i <= akhir; i++ {
+			fmt.Println("Caught ya! Detective Millow, reporting for duty! ✨(🫵⌐■_■)")
+			fmt.Println()
+			fmt.Println("------------------------------------------------------------------------------")
+			fmt.Printf("Tanggal            : %02d/%02d/%d\n", T.daftar_tugas[i].day, T.daftar_tugas[i].mon, T.daftar_tugas[i].year)
+			fmt.Printf("Nama Tugas         : %s\n", T.daftar_tugas[i].nama_tugas)
+			fmt.Printf("Durasi Pengerjaan  : %d\n", T.daftar_tugas[i].durasi_pengerjaan)
+			fmt.Printf("Prioritas          : %d\n", T.daftar_tugas[i].Prioritas)
+			fmt.Printf("Status Penyelesaian: %d\n", T.daftar_tugas[i].selesai)
+			fmt.Println("------------------------------------------------------------------------------")
+			fmt.Println()
+		}
 	} else {
 		fmt.Println("S-sorry...Detective Millow can't find it(⁠;⁠ŏ⁠﹏⁠ŏ⁠)")
 	}
@@ -222,7 +232,7 @@ func binaryMood(M Pengguna, N, d, m, y int) {
 	//jumlah hari dari input waktu yang dicari.Prosedur ini memanggil prosedur TotMDays untuk menghitung 
 	//jumlah hari berdasarkan hari, bulan, dan tahun dari masing-masing index data suasana hati.
 	var left, mid, right int
-	var days, found int
+	var days, found, awal, akhir int
 	var done bool
 	totMDays(&M)
 	left = 0
@@ -257,14 +267,24 @@ func binaryMood(M Pengguna, N, d, m, y int) {
 		}
 	} 
 	if done {
-		fmt.Println("Caught ya! Detective Millow, reporting for duty! ✨(🫵⌐■_■)")
-		fmt.Println()
-		fmt.Println("------------------------------------------------------------------------------")
-		fmt.Printf("Tanggal   : %02d/%02d/%d\n", M.daftar_suasana[found].day, M.daftar_suasana[found].mon, M.daftar_suasana[found].year)
-		fmt.Printf("Skor Emosi: %d\n", M.daftar_suasana[found].skor_emosi)
-		fmt.Printf("Deskripsi : %s\n", M.daftar_suasana[found].deskripsi_perasaan)
-		fmt.Println("------------------------------------------------------------------------------")
-		fmt.Println()
+		awal = found
+		for awal > 0 && days == M.daftar_suasana[awal-1].days {
+			awal--
+		}
+		akhir = found
+		for akhir < N-1 && days == M.daftar_suasana[akhir+1].days {
+			akhir++
+		}
+		for i := awal; i <= akhir; i++ {
+			fmt.Println("Caught ya! Detective Millow, reporting for duty! ✨(🫵⌐■_■)")
+			fmt.Println()
+			fmt.Println("------------------------------------------------------------------------------")
+			fmt.Printf("Tanggal   : %02d/%02d/%d\n", M.daftar_suasana[i].day, M.daftar_suasana[i].mon, M.daftar_suasana[i].year)
+			fmt.Printf("Skor Emosi: %d\n", M.daftar_suasana[i].skor_emosi)
+			fmt.Printf("Deskripsi : %s\n", M.daftar_suasana[i].deskripsi_perasaan)
+			fmt.Println("------------------------------------------------------------------------------")
+			fmt.Println()
+		}
 	} else {
 		fmt.Println("S-sorry...Detective Millow can't find it(⁠;⁠ŏ⁠﹏⁠ŏ⁠)")
 	}

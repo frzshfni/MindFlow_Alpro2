@@ -4,7 +4,7 @@ import "fmt"
 
 func main(){
 	var oHome, oEdit, oInput, oSearch, oSort, oKey, oDate, oSel, oIns, oTren int
-	var d, m, y int
+	var d, m, y  int
 	var run, edit, input, search, sSort, iSort bool
 	var keyword, date, sort, tren bool
 	var sortBy int
@@ -180,6 +180,7 @@ func main(){
 							showTables(data)
 							fmt.Println("Millow: Detective Millow Holmes, ready for duty! (⌐■_■)ノ🔎")
 							fmt.Println("Masukkan tanggal (01 02 2019)")
+							fmt.Println("Notes: untuk tanggal 08 atau 09 ditulis wajib menjadi 8 atau 9")
 							fmt.Println()
 							fmt.Print("⟢ ")
 							fmt.Scan(&d, &m, &y)
@@ -189,6 +190,7 @@ func main(){
 							showTables(data)
 							fmt.Println("Millow: Detective Millow Holmes, ready for duty! (⌐■_■)ノ🔎")
 							fmt.Println("Masukkan tanggal (01 02 2019)")
+							fmt.Println("Notes: untuk tanggal 08 atau 09 ditulis wajib menjadi 8 atau 9")
 							fmt.Println()
 							fmt.Print("⟢ ")
 							fmt.Scan(&d, &m, &y)
