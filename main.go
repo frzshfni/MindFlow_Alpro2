@@ -1,4 +1,4 @@
-package main 
+ package main 
 
 import "fmt"
 
@@ -18,7 +18,7 @@ func main(){
 	run = true
 	for run {
 		//fungsi print tabel
-		cls()
+		cls() 
 		showHeader()
 		showTables(data)
 		fmt.Println("Hi-ya, user!")
@@ -78,9 +78,9 @@ func main(){
 							fmt.Println("Note!")
 							fmt.Println("Masukkan skor emosi dengan skala 1-100")
 							fmt.Println("Contoh format tanggal: 13/06/2027")
-							fmt.Println("Hanya gunakan titik (.) untuk mengakhiri input deskripsi perasaan")
+							fmt.Println("Hanya gunakan spasi titik ( .) untuk mengakhiri input deskripsi perasaan")
 							fmt.Println("Akhiri input dengan '-1'")
-							fmt.Println("Format keseluruhan: 50 13/06/2027 Hari ini aku mau makan nasi padang. -1")
+							fmt.Println("Format keseluruhan: 50 13/06/2027 Hari ini aku mau makan nasi padang . -1")
 							fmt.Println()
 							inputDataSuasana(&data, &Temp2)
 						case 2: //input task

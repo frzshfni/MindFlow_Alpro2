@@ -2,7 +2,6 @@ package main
 
 import (
 	"fmt"
-	"strings"
 )
 
 func selectionAsc(T *Pengguna, max int, sortBy int) {
@@ -149,7 +148,7 @@ func binaryTugas(T Pengguna, N, d, m, y int) {
 	//terlebih dahulu secara ascending menggunakan metode selection lalu membandingkan jumlah hari setiap data dengan 
 	//jumlah hari dari input waktu yang dicari.Prosedur ini memanggil prosedur TotTDays untuk menghitung 
 	//jumlah hari berdasarkan hari, bulan, dan tahun dari masing-masing index data tugas.
-	var left, mid, right int
+	var left, mid, right, i int
 	var days, found, awal, akhir int
 	var done bool
 	totTDays(&T)
@@ -193,7 +192,7 @@ func binaryTugas(T Pengguna, N, d, m, y int) {
 		for akhir < N-1 && days == T.daftar_tugas[akhir+1].days {
 			akhir++
 		}
-		for i := awal; i <= akhir; i++ {
+		for i = awal; i <= akhir; i++ {
 			fmt.Println("Caught ya! Detective Millow, reporting for duty! ✨(🫵⌐■_■)")
 			fmt.Println()
 			fmt.Println("------------------------------------------------------------------------------")
@@ -231,7 +230,7 @@ func binaryMood(M Pengguna, N, d, m, y int) {
 	//terlebih dahulu secara ascending menggunakan metode selection lalu membandingkan jumlah hari setiap data dengan 
 	//jumlah hari dari input waktu yang dicari.Prosedur ini memanggil prosedur TotMDays untuk menghitung 
 	//jumlah hari berdasarkan hari, bulan, dan tahun dari masing-masing index data suasana hati.
-	var left, mid, right int
+	var left, mid, right, i int
 	var days, found, awal, akhir int
 	var done bool
 	totMDays(&M)
@@ -275,7 +274,7 @@ func binaryMood(M Pengguna, N, d, m, y int) {
 		for akhir < N-1 && days == M.daftar_suasana[akhir+1].days {
 			akhir++
 		}
-		for i := awal; i <= akhir; i++ {
+		for i = awal; i <= akhir; i++ {
 			fmt.Println("Caught ya! Detective Millow, reporting for duty! ✨(🫵⌐■_■)")
 			fmt.Println()
 			fmt.Println("------------------------------------------------------------------------------")
@@ -325,13 +324,34 @@ func sequentialMood(M Pengguna, cari string, max int) {
 	// F.S. menampilkan SEMUA catatan emosi berdasarkan kata kunci di deskripsi_perasaan}
 	//Deskripsi: Prosedur ini berfungsi untuk mencari data tertentu pada array M dengan cara mengecek
 	//setiap data pada array M apabila terdapat data yang deskripsi perasaannya mengandung kata yang dicari.
-	var k int
-	var found bool = false
+	var k, i, j int
+	var found, isSama, cocok bool
+	var deskripsi string
+	found = false
 	
 	for k = 0; k < max; k++ {
-		kataKunci := strings.ToLower(cari)
-		dataTugas := strings.ToLower(M.daftar_suasana[k].deskripsi_perasaan)
-		if strings.Contains(dataTugas, kataKunci) {
+		deskripsi = M.daftar_suasana[k].deskripsi_perasaan
+		isSama = false 
+		
+		if len(cari) > 0 && len(cari) <= len(deskripsi) {
+			
+			for i = 0; i <= len(deskripsi)-len(cari) && !isSama; i++ {
+				cocok = true
+				
+				
+				for j = 0; j < len(cari) && cocok; j++ {
+					if deskripsi[i+j] != cari[j] {
+						cocok = false
+					}
+				}	
+				
+				if cocok {
+					isSama = true 
+				}
+			}
+		}
+		
+		if isSama {
 			found = true 
 			
 			// revisi layout

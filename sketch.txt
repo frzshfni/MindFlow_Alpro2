@@ -34,7 +34,7 @@ Menu awal
 1
 ⪩ (1)Input data
     ⪩ (1)Mood
-    Millow:
+    Millow: 
         Alrighty! what do you feel today? ⋋⁠✿⁠ ⁠⁰⁠ ⁠o⁠ ⁠⁰⁠ ⁠✿⁠⋌
         ⪨ Back ←⁠(⁠*⁠꒪⁠ヮ⁠꒪⁠*⁠) ke menu tabel
     ⪨ Back ←⁠(⁠*⁠꒪⁠ヮ⁠꒪⁠*⁠)ke menu edit

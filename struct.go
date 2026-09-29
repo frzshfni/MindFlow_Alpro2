@@ -33,4 +33,4 @@ type arrTemp [arrmax]float64
 type arrTemp2 [arrmax]string
 
 type Tanggal[arrmax] int
-/*riwayat percakapan not found*/
+

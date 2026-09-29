@@ -2,12 +2,10 @@ package main
 
 import (
 	"fmt"
-	"math"
 	"os"
 	"bufio"
 	"os/exec"
 	"runtime"
-	"strings"
 )
 
 //fungsi clear terminal
@@ -33,7 +31,7 @@ func showHeader() {
 	fmt.Printf("%-45s╔═══════════════════════════════════════════════════════════════════════════════════╗\n", pad)
 	fmt.Printf("%-45s║                                                                                   ║\n", pad)
 	fmt.Printf("%-45s║                                                                                   ║\n", pad)
-	fmt.Printf("%-45s║                                    🔮MINDFLOW☁️                                   ║\n", pad)
+	fmt.Printf("%-45s║                                    🔮MINDFLOW☁️                                    ║\n", pad)
 	fmt.Printf("%-45s║                  Your daily companion for a calmer and clearer day!               ║\n", pad)
 	fmt.Printf("%-45s║                                                                                   ║\n", pad)
 	fmt.Printf("%-45s║                                                                                   ║\n", pad)
@@ -65,7 +63,11 @@ func PrintTabel(data Pengguna){
 	//{I.S.terdefinisi array data pengguna
 	//F.S.menampilkan array data sesuai dengan template susunan pada tabel}
 	//Deskripsi: Prosedur yang berfungsi untuk mengisi data pada tabel sesuai dengan format yang telah dirancang dengan array data yang ingin ditampilkan.
-	var maxRows int
+	var maxRows, i int
+	var tglS, deskripsi, skor, sNo string
+	var tglT, namaT, durasi, prioritas, status, tNo string
+	var s Suasana
+	var t tugas
 	maxRows = data.T_suasana
 	if data.T_tugas > maxRows {
 		maxRows = data.T_tugas
@@ -73,14 +75,14 @@ func PrintTabel(data Pengguna){
 
 	if maxRows == 0 {
 		fmt.Printf("║ %-3s╎ %-8s╎ %-54s╎ %-16s║%s║ %-3s╎ %-8s╎ %-31s╎ %-18s╎ %-10s╎ %-7s║\n",
-			"", "", "", "", "", "   ", "", "", "", "", "", "")
+			"", "", "", "", "   ", "", "", "", "", "", "")
 	}
 	
-	for i := 0; i < maxRows; i++ {
+	for i = 0; i < maxRows; i++ {
 		// DATA SUASANA (KIRI)
-		tglS, deskripsi, skor, sNo := "", "", "", ""
+		tglS, deskripsi, skor, sNo = "", "", "", ""
 		if i < data.T_suasana {
-			s := data.daftar_suasana[i]
+			s = data.daftar_suasana[i]
 			sNo = fmt.Sprintf("%d", i+1)
 			tglS = fmt.Sprintf("%02d/%02d/%02d", s.day, s.mon, s.year%100) 
 			
@@ -89,9 +91,9 @@ func PrintTabel(data Pengguna){
 		}
 
 		// DATA TUGAS (KANAN)
-		tglT, namaT, durasi, prioritas, status, tNo := "", "", "", "", "", ""
+		tglT, namaT, durasi, prioritas, status, tNo = "", "", "", "", "", ""
 		if i < data.T_tugas {
-			t := data.daftar_tugas[i]
+			t = data.daftar_tugas[i]
 			tNo = fmt.Sprintf("%d", i+1)
 			tglT = fmt.Sprintf("%02d/%02d/%02d", t.day, t.mon, t.year%100)
 			
@@ -166,14 +168,16 @@ func isiDeskripsi(P *Pengguna, kataPart *arrTemp2, i int) {
 	//F.S.menggabungkan seluruh array kataPart menjadi sebuah string menggunakan prosedur gabungDeskripsi dan menyimpannya di array P}
 	//Deskripsi: prosedur yang berfungsi untuk menerima string deskrisi perasaan perkata kata berdasarkan yang telah diketahui dari prosedur inputDataSuasana
 	//ke dalam array p index ke i. Prosedur ini memanggil prosedur gabungDeskripsi untuk membantu proses penggabungan array.
-	var j int = 0
+	var j int
+	var panjangKata int
+	j = 0
 
 	fmt.Scan(&kataPart[j])
-	for !strings.Contains(kataPart[j], ".") {
+	for !(kataPart[j] == ".") {
 		j++
 		fmt.Scan(&kataPart[j])
 	}
-	panjangKata := j + 1
+	panjangKata = j + 1
 	P.daftar_suasana[i].deskripsi_perasaan = gabungDeskripsi(kataPart, panjangKata)
 }
 
@@ -206,20 +210,20 @@ func deleteData(data *Pengguna)bool{
 	untuk menggantikan sehingga jumlah index array yang terisi berkurang sebesar 1.
 	*/
 	var jenis string
-	var Nomer int
+	var Nomer, i int
 	var status bool
 	fmt.Print("Nama tabel dari data yang akan diubah (Tugas/Suasana): ")
 	fmt.Scan(&jenis)
 	fmt.Print("Data yang akan dihapus nomor:")
 	fmt.Scan(&Nomer)
 	if jenis == "Tugas"{
-		for i:= Nomer; i < data.T_tugas; i++{
+		for i= Nomer; i < data.T_tugas; i++{
 			data.daftar_tugas[i-1] = data.daftar_tugas[i]
 		}
 		data.T_tugas--
 		status = true  
 	}else if jenis == "Suasana"{
-		for i:= Nomer; i < data.T_suasana; i++{
+		for i= Nomer; i < data.T_suasana; i++{
 			data.daftar_suasana[i-1] = data.daftar_suasana[i]
 		}
 		data.T_suasana--
@@ -255,7 +259,7 @@ func UbahData(data *Pengguna, kataPart *arrTemp2){
 		fmt.Println("Note!")
 	}else if Jenis == "Suasana"{
 		fmt.Println("Masukkan skor emosi, tanggal, dan deskripsi perasaan secara berurutan! (❁´◡❁)`")
-		fmt.Println("-Contoh format: 50 13/06/2027 aku mau makan.-")
+		fmt.Println("-Contoh format: 50 13/06/2027 aku mau makan .-")
 		fmt.Scan(&data.daftar_suasana[Nomer-1].skor_emosi)
 		fmt.Scanf("%d/%d/%d", &data.daftar_suasana[Nomer-1].day, &data.daftar_suasana[Nomer-1].mon, &data.daftar_suasana[Nomer-1].year)
 		isiDeskripsi(data, kataPart, Nomer-1)
@@ -271,14 +275,17 @@ func presentaseTugasHarian(data *Pengguna, hari int, bulan int, tahun int)float6
 	Fungsi ini memanggil prosedur totTDays untuk menghitung jumlah hari berdasarkan hari, bulan, dan tahun 
 	dari masing-masing index data tugas.
 	*/
-	var tHari, done, tTugas int
+	var tHari, done, tTugas, i int
 	done = 0
 	tTugas = 0
 	tHari = hari + ((bulan-1)*30) + ((tahun-1)*365)
 	totTDays(data)
-	for i:= 0; i < data.T_tugas; i++{
+	fmt.Println("Daftar Tugas(1 = Selesai, 0 = Belum)")
+	for i = 0; i < data.T_tugas; i++{
 		if data.daftar_tugas[i].days == tHari{
 			tTugas++
+			fmt.Println(i+1, data.daftar_tugas[i].nama_tugas, data.daftar_tugas[i].selesai)
+			fmt.Println()
 			if data.daftar_tugas[i].selesai == 1{
 				done++
 			}
@@ -299,7 +306,7 @@ func presentaseSuasanaMingguan(data *Pengguna, Temp *arrTemp){
 	Prosedur ini juga memanggil totMDays untuk menghitung jumlah hari berdasarkan hari, bulan, dan tahun 
 	dari masing-masing index data suasana hati.
 	*/
-	var h1, b1, t1, h2, b2, t2 int
+	var h1, b1, t1, h2, b2, t2, i int
 	var tglAwal, tglAkhir string
 
 	fmt.Println("Format rentang tanggal: DD/MM/YYYY DD/MM/YYYY (pisahkan dengan spasi)")
@@ -316,7 +323,7 @@ func presentaseSuasanaMingguan(data *Pengguna, Temp *arrTemp){
 	totMDays(data)
 	
 	n = 0
-	for i:= 0; i < data.T_suasana; i++{
+	for i = 0; i < data.T_suasana; i++{
 		if data.daftar_suasana[i].days >= Tmin && data.daftar_suasana[i].days <= Tmaks{
 			Temp[n] = float64(data.daftar_suasana[i].skor_emosi)
 			n++
@@ -335,7 +342,7 @@ func GrafikTrenMood(data *arrTemp, n int) {
 	untuk menampilkan grafik batang secara horizontal langsung di terminal.
 	*/
 
-	var i int
+	var i, j int
 	var nilai float64
 	var nilaiBaru float64
 	var nilaiBulat int
@@ -361,8 +368,11 @@ func GrafikTrenMood(data *arrTemp, n int) {
 				nilaiBaru = 1.0
 			}
 
-			nilaiBulat = int(math.Round(nilaiBaru))
-			barGrafik = strings.Repeat("█", nilaiBulat)
+			nilaiBulat = int(nilaiBaru + 0.5)
+			barGrafik = ""
+			for j = 0; j < nilaiBulat; j++ {
+				barGrafik += "█"
+			}
 
 			fmt.Printf("%9.0f | %12.1f | %s\n\n", nilai, nilaiBaru, barGrafik)
 		}
@@ -375,33 +385,53 @@ func loadData(data *Pengguna) {
 	F.S Array data terisi dengan data yang di load dari file sData.txt
 	Deskripsi: procedur ini membuka dan melakukan scan pada file sData.txt untuk dimuat ke dalam array data pengguna 
 	*/
-	file, err := os.Open("sData.txt")
+
+	var file *os.File
+	var err error
+	var text string
+	var p [10]string 
+	var pLen int
+	var i, j int
+	var scan *bufio.Scanner
+	
+	file, err = os.Open("sData.txt")
 	if err != nil {
 		fmt.Println("Millow: Dummy data tidak ditemukan. Mulai dengan tabel kosong! ☁️")
 	}else{
 		defer file.Close()
+		scan = bufio.NewScanner(file)
+		
+		for scan.Scan() {	
+			text = scan.Text() 
+			pLen = 0
+			
+			for j = 0; j < 10; j++ {
+				p[j] = ""
+			}
+			
+	
+			for i = 0; i < len(text); i++ {
+				if text[i] == '|' {
+					pLen++ 
+				} else {
+					p[pLen] += string(text[i]) 
+				}
+			}
+			pLen++ 
 
-		scanner := bufio.NewScanner(file)
-		for scanner.Scan() {
-			p := strings.Split(scanner.Text(), "|") 
-
-			if p[0] == "TUGAS" && len(p) == 6 && data.T_tugas < arrmax {
-				t := &data.daftar_tugas[data.T_tugas]
-				
-				t.nama_tugas = p[1]
-				fmt.Sscanf(p[2], "%d/%d/%d", &t.day, &t.mon, &t.year)
-				fmt.Sscanf(p[3], "%d", &t.durasi_pengerjaan)
-				fmt.Sscanf(p[4], "%d", &t.Prioritas)
-				fmt.Sscanf(p[5], "%d", &t.selesai)
+			if p[0] == "TUGAS" && pLen == 6 && data.T_tugas < arrmax {
+				data.daftar_tugas[data.T_tugas].nama_tugas = p[1]
+				fmt.Sscanf(p[2], "%d/%d/%d", &data.daftar_tugas[data.T_tugas].day, &data.daftar_tugas[data.T_tugas].mon, &data.daftar_tugas[data.T_tugas].year)
+				fmt.Sscanf(p[3], "%d", &data.daftar_tugas[data.T_tugas].durasi_pengerjaan)
+				fmt.Sscanf(p[4], "%d", &data.daftar_tugas[data.T_tugas].Prioritas)
+				fmt.Sscanf(p[5], "%d", &data.daftar_tugas[data.T_tugas].selesai)
 				
 				data.T_tugas++
 				
-			} else if p[0] == "SUASANA" && len(p) == 4 && data.T_suasana < arrmax {
-				s := &data.daftar_suasana[data.T_suasana] 
-				
-				fmt.Sscanf(p[1], "%d", &s.skor_emosi)
-				fmt.Sscanf(p[2], "%d/%d/%d", &s.day, &s.mon, &s.year)
-				s.deskripsi_perasaan = p[3]
+			} else if p[0] == "SUASANA" && pLen == 4 && data.T_suasana < arrmax {
+				fmt.Sscanf(p[1], "%d", &data.daftar_suasana[data.T_suasana].skor_emosi)
+				fmt.Sscanf(p[2], "%d/%d/%d", &data.daftar_suasana[data.T_suasana].day, &data.daftar_suasana[data.T_suasana].mon, &data.daftar_suasana[data.T_suasana].year)
+				data.daftar_suasana[data.T_suasana].deskripsi_perasaan = p[3]
 				
 				data.T_suasana++
 			}
@@ -410,11 +440,15 @@ func loadData(data *Pengguna) {
 }
 
 // fungsi percakapan dibawah 
-	//membaca log data
+//membaca log data
 func openLog(){
 	// Deskripsi: Prosedur ini berfungsi untuk menampilkan log percakapan yang sudah 
 	// disiapkan dalam file percakapan.log.
-	file, err := os.Open("percakapan.log")
+	var file *os.File
+	var err error
+	var scan *bufio.Scanner
+
+	file, err = os.Open("percakapan.log")
 	if err != nil {
 		fmt.Println("Millow: Wah, belum ada riwayat percakapan nih! ☁️")
 	}else{
@@ -424,9 +458,9 @@ func openLog(){
 		fmt.Printf("%-45s║              📜 Riwayat Percakapan Millow            ║\n", gap)
 		fmt.Printf("%-45s╚══════════════════════════════════════════════════════╝\n\n", gap)
 
-		scanner := bufio.NewScanner(file)
-		for scanner.Scan() {
-			fmt.Println(scanner.Text())
+		scan = bufio.NewScanner(file)
+		for scan.Scan() {
+			fmt.Println(scan.Text())
 		}
 	}
 }
